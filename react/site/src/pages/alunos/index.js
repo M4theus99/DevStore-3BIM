@@ -33,36 +33,36 @@ export default function Index() {
                                     <div class="number-student"> Avaliação: </div>  
                                     <div class="input"> <input /> </div> 
                                 </div>
+                                <div class="agp-input-longo1">
+                                    <div class="number-student-longo"> Link Imagem: </div>  
+                                    <div class="input1"> <input /> </div> 
+                                </div>
+                                <div class="agp-input-longo2">
+                                    <div class="number-student"> Descrição: </div>  
+                                    <div class="input2"> <input /> </div> 
+                                </div>
+                                
                             </div>
                             
 
                             
 
                             <div class="input-right">
-                                <div class="agp-input">
+                                <div class="agp-input1">
                                     <div class="corse-student"> Preço DE: </div>  
-                                    <div class="input"> <input /> </div>  
+                                    <div class="inputM"> <input /> </div>  
                                 </div>
-                                <div class="agp-input">
-                                    <div class="class-student"> Preço POR: </div>  
+                                <div class="agp-input2">
+                                    <div class="class-student1"> Preço POR: </div>  
                                     <div class="input"> <input /> </div> 
                                 </div>
-                                <div class="agp-input">
-                                    <div class="number-student"> Estoque: </div>  
+                                <div class="agp-input3">
+                                    <div class="number-student1"> Estoque:</div>  
                                     <div class="input"> <input /> </div> 
                                 </div>
-                                <div class="agp-input-longo">
-                                    <div class="number-student-longo"> Link Imagem: </div>  
-                                    <div class="input"> <input /> </div> 
-                                </div>
-                                <div class="agp-input-longo">
-                                    <div class="number-student"> Descrição: </div>  
-                                    <div class="input"> <input /> </div> 
-                                </div>
+                               
                             </div>
-                            
-                            
-                            <div class="button-create"> <button> Cadastrar </button> </div>
+                                                                                    
                         </div>
                     </div>
 

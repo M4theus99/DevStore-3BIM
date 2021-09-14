@@ -44,7 +44,7 @@ input, button {
     border-right: 10px solid transparent;
 }
 
-.devSchool {
+.devStore {
     color: white;
     font-size: 28px;
     font-weight: 700;
@@ -276,7 +276,7 @@ input {
     width: 106px;
     height: 36px;
 
-    background: #E911C6;
+    background: #119FDC;
     border-radius: 44px;
     border: none;
     color: white;
@@ -382,7 +382,7 @@ input {
  }
 
  thead {
-     background-color: #986CDF;
+     background-color: #6CC3DF;
     
      
      
@@ -421,6 +421,7 @@ th {
 } 
 .table-user {
     border-collapse: collapse;
+
 }
 .int {
     background-color: #fff;

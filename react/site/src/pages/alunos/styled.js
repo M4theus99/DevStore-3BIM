@@ -45,16 +45,56 @@ const Container = styled.div`
         align-items: center;
     }
 
-    .agp-input-longo {
+    .agp-input1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: -28em;
+    }
+
+    .agp-input2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: -28em;
+    }
+
+    .agp-input3 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: -28em;
+    }
+
+    .agp-input-longo1 {
         display: flex;
         flex-direction: row;
         align-items: lef;
     }
 
+    .agp-input-longo2 {
+        display: flex;
+        flex-direction: row;
+        align-items: lef;
+    }
 
     .input {
         margin-top: .5em;
         margin-bottom: .5em;
+    }
+
+    .input1 > input {
+        margin-top: .5em;
+        margin-bottom: .5em;
+        padding-right: 43em;
+
+    }
+
+    .input2 > input {
+        margin-top: .5em;
+        margin-bottom: .5em;
+        padding: 90px;
+        padding-right: 37em;
     }
 
     .input-left {
@@ -67,6 +107,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         margin-bottom: 1em;
+        margin-left: 6em;
     }
 
     input {
@@ -78,6 +119,7 @@ const Container = styled.div`
         box-sizing: border-box;
         border-radius: 5px;
         padding-left: .5em;
+        
 
     }
 
@@ -97,19 +139,35 @@ const Container = styled.div`
         font-weight: 800;
     }
 
+    .number-student1 {
+        font-size: 18px;
+        color: #615858;
+        width: 5.5em;
+        font-weight: 800;
+        padding-left: 0.9em;
+        margin-left: -0.5em;
+    }
+
     .number-student-longo {
         font-size: 18px;
         color: #615858;
         width: 5.5em;
         font-weight: 800;
-        
-    }
+     }
 
     .class-student {
         font-size: 18px;
         color: #615858;
         margin-right: 0.8em;
         font-weight: 800;
+    }
+
+    .class-student1 {
+        font-size: 18px;
+        color: #615858;
+        margin-right: 0.8em;
+        font-weight: 800;
+        margin-left: -0.6em;
     }
 
     .corse-student {
