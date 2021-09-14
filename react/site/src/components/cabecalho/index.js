@@ -8,10 +8,10 @@ export default function Index() {
             <div class="reader-right-box">
                 <div class="box-user"> 
                     <div class="user-image">
-                        <img src="/assets/images/usuario.jpeg" alt="" />
+                        <img src="/assets/images/mancha.jpg" />
                         <div class="absolute">3</div>
                     </div>
-                    <div class="user-name"> Olá, <b>Bruno de Oliveira</b> </div>
+                    <div class="user-name"> Olá, <b>Matheus S.C Santos</b> </div>
                 </div>
                 
                 <div class="box-image">

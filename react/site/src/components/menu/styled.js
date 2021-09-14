@@ -27,7 +27,7 @@ const Container = styled.div`
         border-right: 10px solid transparent;
     }
 
-    .devSchool {
+    .devStore {
         color: white;
         font-size: 28px;
         font-weight: 700;
@@ -60,14 +60,14 @@ const Container = styled.div`
         margin-left: 1em;
     }
 
-    .left-box-aluno {
+    .left-box-produtos {
         display: flex;
         flex-direction: row;
         
         height: 55px;
 
         background-color: white;
-        border-left: 4px solid  #EA10C7;
+        border-left: 4px solid  #10EAEA;
 
         color: #1A1A1A;
         font-size: 18px;
@@ -81,6 +81,10 @@ const Container = styled.div`
     .left-box-aluno div {
         font-weight: 800;
         color: #1A1A1A;
+    }
+
+    .dev{
+        color: #10EAEA;
     }
 
 `

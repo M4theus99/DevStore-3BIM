@@ -17,10 +17,10 @@ const Container = styled.div`
     }
 
     .bar-new-student {
-        border: 3px solid #986CDF;
+        border: 6px solid #119FDC;
         border-radius: .5em;
         margin-right: .4em;
-        background-color: #986CDF;
+        background-color: #119FDC;
     }
 
     .text-new-student {
@@ -44,6 +44,14 @@ const Container = styled.div`
         flex-direction: row;
         align-items: center;
     }
+
+    .agp-input-longo {
+        display: flex;
+        flex-direction: row;
+        align-items: lef;
+    }
+
+
     .input {
         margin-top: .5em;
         margin-bottom: .5em;
@@ -89,6 +97,14 @@ const Container = styled.div`
         font-weight: 800;
     }
 
+    .number-student-longo {
+        font-size: 18px;
+        color: #615858;
+        width: 5.5em;
+        font-weight: 800;
+        
+    }
+
     .class-student {
         font-size: 18px;
         color: #615858;
@@ -114,7 +130,7 @@ const Container = styled.div`
         width: 106px;
         height: 36px;
 
-        background: #E911C6;
+        background: #119FDC;
         border-radius: 44px;
         border: none;
         color: white;
@@ -221,7 +237,7 @@ const Container = styled.div`
     }
 
     thead {
-        background-color: #986CDF;
+        background-color: #6CC3DF;
     }
 
     table {
