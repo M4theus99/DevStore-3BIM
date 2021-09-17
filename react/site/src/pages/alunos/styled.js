@@ -57,6 +57,7 @@ const Container = styled.div`
         flex-direction: row;
         align-items: center;
         margin-left: -28em;
+        margin-top: .3em;
     }
 
     .agp-input3 {
@@ -107,7 +108,8 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         margin-bottom: 1em;
-        margin-left: 6em;
+        margin-left: -2.6em;
+        margin-top: .7em;
     }
 
     input {
@@ -182,6 +184,7 @@ const Container = styled.div`
         align-self: flex-end;
         justify-self: flex-end;
         padding-bottom: 1.5em;
+        margin-bottom: -1em;
     }
 
     .button-create  button {

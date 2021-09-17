@@ -16,10 +16,10 @@ const Container = styled.div`
         font-size: 16px;
     }
 
-    .user-name b {
-        color: #4a4a4a;
-    }
     
+    .user_image{
+        background-color: #119FDC;
+    }
 
     .absolute{
         background-color: #119FDC;

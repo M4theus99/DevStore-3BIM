@@ -130,7 +130,7 @@ input, button {
 
 .left-button button {
     border-radius: 50%;
-    background-color: #986CDF;
+    background-color: #119FDC;
     width: 44px;
     height: 44px;
     border: none;
@@ -139,7 +139,7 @@ input, button {
 
 .refresh-button button {
     border-radius: 50%;
-    background-color: #986CDF;
+    background-color: #119FDC;
     width: 44px;
     height: 44px;
     border: none;
@@ -179,10 +179,10 @@ input, button {
 }
 
 .bar-new-student {
-    border: 3px solid #986CDF;
+    border: 3px solid #119FDC;
     border-radius: .5em;
     margin-right: .4em;
-    background-color: #986CDF;
+    background-color: #119FDC;
 }
 
 .text-new-student {
