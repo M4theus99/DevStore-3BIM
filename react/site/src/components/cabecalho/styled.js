@@ -19,6 +19,7 @@ const Container = styled.div`
     .absolute{
         background-color: #119FDC;
     }
+
     
     .user_image{
         background-color: #119FDC;
