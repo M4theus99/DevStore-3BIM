@@ -67,10 +67,15 @@ const Container = styled.div`
         margin-left: -28em;
     }
 
-    .agp-input-longo1 {
+    .agp-input-longo1  {
         display: flex;
         flex-direction: row;
         align-items: lef;
+    }
+
+    .agp-input-longo1 input {
+      
+        width: 43.5em;
     }
 
     .agp-input-longo2 {
@@ -79,23 +84,14 @@ const Container = styled.div`
         align-items: lef;
     }
 
+    .agp-input-longo2 input {
+        width: 43.5em;
+        height: 14em;
+    }
+
     .input {
         margin-top: .5em;
         margin-bottom: .5em;
-    }
-
-    .input1 > input {
-        margin-top: .5em;
-        margin-bottom: .5em;
-        padding-right: 43em;
-
-    }
-
-    .input2 > input {
-        margin-top: .5em;
-        margin-bottom: .5em;
-        padding: 90px;
-        padding-right: 37em;
     }
 
     .input-left {
@@ -108,9 +104,11 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         margin-bottom: 1em;
-        margin-left: -2.6em;
+        margin-left: -2em;
         margin-top: .7em;
     }
+
+    
 
     input {
         width: 209px;
@@ -150,12 +148,13 @@ const Container = styled.div`
         margin-left: -0.5em;
     }
 
-    .number-student-longo {
+    .number-student-longo  {
         font-size: 18px;
         color: #615858;
         width: 5.5em;
         font-weight: 800;
      }
+
 
     .class-student {
         font-size: 18px;
@@ -338,12 +337,22 @@ const Container = styled.div`
         width: .1em;
     }
 
+    .coluna-acao > button {
+        visibility: hidden;
+    }
+
+    tr:hover {
+            .coluna-acao > button {
+            visibility: visible;
+        }
+    }
+
     button {
         cursor: pointer;
     }
 
     .button-create button:hover {
-        background-color: #aa3997;
+        background-color: #6CC3DF;
         transition: 2s;
     }
 

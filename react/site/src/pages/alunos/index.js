@@ -1,10 +1,19 @@
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import LoadingBar from 'react-top-loading-bar'
+
+
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 import Cabecalho from '../../components/cabecalho'
 import Menu from '../../components/menu'
 
 import { Container, Conteudo } from './styled'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Api from '../../service/api';
 const api = new Api();
@@ -22,7 +31,7 @@ export default function Index() {
     const [descricao, setDescricao] = useState('');
     const [idAlterando, setidAlterando] = useState(0);
 
-    
+    const loading = useRef(null);
 
     async function listar() {
         let r = await api.listar();
@@ -31,18 +40,30 @@ export default function Index() {
 
 
     async function inserir() {
+        loading.current.continuousStart();
         
         if (idAlterando == 0 ){
-        let r = await api.inserir(produto, categoria, preco_de, preco_por, avaliacao, descricao, estoque, linkImagem);
-        alert('Produto Inserido!')
-       } else {
-           let r = await api.alterar(idAlterando, produto, categoria, preco_de, preco_por, avaliacao, descricao, estoque, linkImagem);
-           alert('Produto Alterado!')
-       }
+        let r = await api.inserir(nome, categoria, preco_de, preco_por, avaliacao, descricao, estoque, linkImagem);
+            
+        if(r.erro) 
+            alert(r.erro);
+         else 
+         alert('💕 Produto cadastrado com sucesso!');
+            
+        } else {
+            let r = await api.alterar( idAlterando, nome, categoria, preco_de, preco_por, avaliacao, descricao, estoque, linkImagem);
+            if(r.erro) 
+            alert(r.erro)
+             else 
+            alert('✏️ Produto alterado!');
+            }
+        
+        loading.current.complete();
 
         limparcampo();
         listar();
-    }
+        }
+    
 
     function limparcampo () {
         setNome('');
@@ -57,11 +78,28 @@ export default function Index() {
     }
 
     async function remover(id) {
-        let r = await api.remover(id);
-        alert('Produto Removido!');
-        
-        listar();
-    }
+        confirmAlert({
+            title: 'Remover Produto',
+            message: `Tem certeza que deseja remover o produto ${id} ?`,
+            buttons: [
+              {
+                label: 'Sim',
+                onClick: async () => {
+                  let r = await api.remover(id);
+                  if (r.error)
+                    toast.error(`${r.error}`);
+                  else {
+                    toast.dark('🗑️ Produto removido!');
+                    listar();
+                  }
+                }
+              },
+              {
+                label: 'Não'
+              }
+            ]
+          });
+        }
 
     async function editar(item) {
         setNome(item.nm_produto);
@@ -83,6 +121,7 @@ export default function Index() {
 
     return (
         <Container>
+            <LoadingBar color="blue" ref={loading}/>
             <Menu />
             <Conteudo>
                 <Cabecalho />
@@ -91,7 +130,7 @@ export default function Index() {
                         
                         <div class="text-new-student">
                             <div class="bar-new-student"></div>
-                            <div class="text-new-student">Novo Produto</div>
+                            <div class="text-new-student"> {idAlterando == 0 ? "Produto Novo" : "Alterando Produto " + idAlterando} </div>
                         </div>
 
                         <div class="input-new-student"> 
@@ -106,16 +145,16 @@ export default function Index() {
                                 </div>
                                 <div class="agp-input">
                                     <div class="number-student"> Avaliação: </div>  
-                                    <div class="input"> <input type="text" value={avaliacao} onChange={e => setAvaliacao(e.target.value)} /> </div> 
+                                    <div class="input"> <input type="text" value={avaliacao} onChange={e => setAvaliacao(e.target.value)} maxLength="5" /> </div> 
                                 </div>
                                 <div class="agp-input-longo1">
-                                    <div class="number-student-longo"> Link Imagem: </div>  
-                                    <div class="input1"> <input type="text" value={linkImagem} onChange={e => setLinkImagem(e.target.value)} /> </div> 
+                                    <div class="number-student"> Link Imagem: </div>  
+                                    <div class="input"> <input type="url" value={linkImagem} onChange={e => setLinkImagem(e.target.value)} /> </div> 
                                 </div>
                                 <div class="agp-input-longo2">
                                     <div class="number-student"> Descrição: </div>  
-                                    <div class="input2"> <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} /> </div> 
-                                    <div class="button-create"> <button onClick={inserir} > Cadastrar </button> </div>
+                                    <div class="input2"> < input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} /> </div> 
+                                    <div class="button-create"> <button onClick={inserir} > { idAlterando == 0 ? "Cadastrar" : "Alterar" } </button> </div>
                                 </div>
                                 
                             </div>
@@ -151,7 +190,7 @@ export default function Index() {
                         <table class ="table-user">
                             <thead>
                                 <tr>
-                                    <th>{""}</th>
+                                    <th></th>
                                     <th> ID </th>
                                     <th> Produto </th>
                                     <th> Categoria </th>
@@ -164,17 +203,19 @@ export default function Index() {
                     
                             <tbody>
 
-                                {produto.map(item =>
+                                {produto.map((item, i) =>
                                     
-                                    <tr>
-                                    <td>{""}</td>
+                                    <tr className={i % 2 == 0 ? "linha-alternada" : ""}>
+                                    <td title={item.nm_produto} > <img src={item.img_produto != null && item.nm_produto.length >= 25
+                                        ? item.nm_produto.substr(0, 25) + '...'
+                                        : item.img_produto} alt="" style={{width:'40px', height:'40px'}}/> </td>
                                     <td> {item.id_produto} </td>
-                                    <td> {item.nm_produto} </td>
-                                    <td> {item.ds_categoria} </td>
+                                    <td title={ item.nm_produto != null && item.nm_produto.length > 12 ? item.nm_produto : null }> { item.nm_produto != null && item.nm_produto.length >= 15 ? item.nm_produto.substr(0, 15) + '...' : item.nm_produto } </td>
+                                    <td title={ item.ds_categoria != null && item.ds_categoria.length > 10 ? item.ds_categoria : null }> { item.ds_categoria != null && item.ds_categoria.length >= 10 ? item.ds_categoria.substr(0, 10) + '...' : item.ds_categoria } </td>
                                     <td> {item.vl_preco_por} </td>
                                     <td> {item.qtd_estoque} </td>
-                                    <td> <button onClick={ () => editar(item) } > <img src="/assets/images/edit.svg" alt="" /> </button> </td>
-                                    <td> <button onClick={ () => remover(item.id_produto)} > <img src="/assets/images/trash.svg" alt="" /> </button> </td>
+                                    <td className="coluna-acao"> <button onClick={ () => editar(item) } > <img src="/assets/images/edit.svg" alt="" /> </button> </td>
+                                    <td className="coluna-acao"> <button onClick={ () => remover(item.id_produto)} > <img src="/assets/images/trash.svg" alt="" /> </button> </td>
                                 </tr>
 
                               )}

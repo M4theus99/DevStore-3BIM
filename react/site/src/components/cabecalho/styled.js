@@ -16,14 +16,15 @@ const Container = styled.div`
         font-size: 16px;
     }
 
+    .absolute{
+        background-color: #119FDC;
+    }
     
     .user_image{
         background-color: #119FDC;
     }
 
-    .absolute{
-        background-color: #119FDC;
-    }
+  
 
 
 
